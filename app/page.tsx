@@ -319,37 +319,39 @@ function TeamMemberModal({
   if (!isOpen || !member) return null
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
       onClick={onClose}
     >
       <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-300" />
-      <div 
-        className="relative bg-card border border-border rounded-3xl p-8 md:p-10 max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
+      <div
+        className="relative bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted hover:bg-muted/80 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted hover:bg-muted/80 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
-        
-        <div className="flex items-start gap-6 mb-6">
-          <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center text-primary-foreground text-2xl font-semibold flex-shrink-0">
+
+        <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6 pr-8 sm:pr-0">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary/70 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-foreground text-xl sm:text-2xl font-semibold flex-shrink-0">
             {member.initials}
           </div>
           <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-1">{member.name}</h3>
-            <p className="text-primary font-medium">{member.role}</p>
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-1">{member.name}</h3>
+            <p className="text-primary font-medium text-sm sm:text-base">{member.role}</p>
           </div>
         </div>
-        
+
         <div className="prose prose-slate max-w-none">
-          <p className="text-muted-foreground font-light leading-relaxed whitespace-pre-line">
-            {member.fullBio}
-          </p>
+          {member.fullBio.split('\n\n').map((paragraph, index) => (
+            <p key={index} className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base mb-4 last:mb-0">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
     </div>
