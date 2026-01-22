@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { Menu, X, ChevronRight, Shield, Users, FileCheck, GraduationCap, Mail, Phone, MapPin, ArrowRight, CheckCircle2, TrendingUp, Target, Zap, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -291,11 +292,11 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 }
 
 // Team Member Modal Component
-function TeamMemberModal({ 
-  isOpen, 
-  onClose, 
-  member 
-}: { 
+function TeamMemberModal({
+  isOpen,
+  onClose,
+  member
+}: {
   isOpen: boolean
   onClose: () => void
   member: {
@@ -305,6 +306,13 @@ function TeamMemberModal({
     fullBio: string
   } | null
 }) {
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => {
+    setMounted(true)
+    return () => setMounted(false)
+  }, [])
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -316,14 +324,28 @@ function TeamMemberModal({
     }
   }, [isOpen])
 
-  if (!isOpen || !member) return null
-
-  return (
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape)
+    }
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [isOpen, onClose])
+  
+  if (!isOpen || !member || !mounted) return null
+  
+  const modalContent = (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-300" />
+      <div 
+        className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-300" 
+        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      />
       <div
         className="relative bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
@@ -335,7 +357,7 @@ function TeamMemberModal({
         >
           <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
-
+        
         <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6 pr-8 sm:pr-0">
           <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary/70 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-foreground text-xl sm:text-2xl font-semibold flex-shrink-0">
             {member.initials}
@@ -345,7 +367,7 @@ function TeamMemberModal({
             <p className="text-primary font-medium text-sm sm:text-base">{member.role}</p>
           </div>
         </div>
-
+        
         <div className="prose prose-slate max-w-none">
           {member.fullBio.split('\n\n').map((paragraph, index) => (
             <p key={index} className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base mb-4 last:mb-0">
@@ -356,6 +378,8 @@ function TeamMemberModal({
       </div>
     </div>
   )
+  
+  return createPortal(modalContent, document.body)
 }
 
 // AboutPage Component
