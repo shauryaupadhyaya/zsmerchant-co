@@ -1,8 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
+import React from "react"
+
+import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Menu, X, ChevronRight, Shield, Users, FileCheck, GraduationCap, Mail, Phone, MapPin, ArrowRight, CheckCircle2, TrendingUp, Target, Zap, Sparkles } from 'lucide-react'
+import { Menu, X, ChevronRight, Shield, Users, Mail, Phone, MapPin, ArrowRight, CheckCircle2, TrendingUp, Target, Zap, Sparkles, Linkedin } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function ZSMerchantWebsite() {
@@ -146,7 +148,7 @@ export default function ZSMerchantWebsite() {
       <main className="animate-in fade-in duration-500">
         {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
         {currentPage === 'about' && <AboutPage />}
-        {currentPage === 'services' && <ServicesPage navigateTo={navigateTo} />}
+        {currentPage === 'services' && <ServicesPage />}
         {currentPage === 'case-studies' && <CaseStudiesPage />}
         {currentPage === 'contact' && <ContactPage />}
       </main>
@@ -290,20 +292,15 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
   )
 }
 
-// Team Member Modal Component
-function TeamMemberModal({
+// Generic Modal Component
+function Modal({
   isOpen,
   onClose,
-  member
+  children
 }: {
   isOpen: boolean
   onClose: () => void
-  member: {
-    name: string
-    role: string
-    initials: string
-    fullBio: string
-  } | null
+  children: React.ReactNode
 }) {
   const [mounted, setMounted] = useState(false)
   
@@ -333,7 +330,7 @@ function TeamMemberModal({
     return () => window.removeEventListener('keydown', handleEscape)
   }, [isOpen, onClose])
   
-  if (!isOpen || !member || !mounted) return null
+  if (!isOpen || !mounted) return null
   
   const modalContent = (
     <div
@@ -346,7 +343,7 @@ function TeamMemberModal({
         style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
       />
       <div
-        className="relative bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 max-w-2xl w-full max-h-[85vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
+        className="relative bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 max-w-3xl w-full max-h-[85vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -356,29 +353,134 @@ function TeamMemberModal({
         >
           <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
-        
-        <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6 pr-8 sm:pr-0">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary/70 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-foreground text-xl sm:text-2xl font-semibold flex-shrink-0">
-            {member.initials}
-          </div>
-          <div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-1">{member.name}</h3>
-            <p className="text-primary font-medium text-sm sm:text-base">{member.role}</p>
-          </div>
-        </div>
-        
-        <div className="prose prose-slate max-w-none">
-          {member.fullBio.split('\n\n').map((paragraph, index) => (
-            <p key={index} className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base mb-4 last:mb-0">
-              {paragraph}
-            </p>
-          ))}
-        </div>
+        {children}
       </div>
     </div>
   )
   
   return createPortal(modalContent, document.body)
+}
+
+// Team Member Modal Component
+function TeamMemberModal({
+  isOpen,
+  onClose,
+  member
+}: {
+  isOpen: boolean
+  onClose: () => void
+  member: {
+    name: string
+    role: string
+    initials: string
+    fullBio: string
+  } | null
+}) {
+  if (!member) return null
+  
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 mb-6 pr-8 sm:pr-0">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary/70 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-foreground text-xl sm:text-2xl font-semibold flex-shrink-0">
+          {member.initials}
+        </div>
+        <div>
+          <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-1">{member.name}</h3>
+          <p className="text-primary font-medium text-sm sm:text-base">{member.role}</p>
+        </div>
+      </div>
+      
+      <div className="prose prose-slate max-w-none">
+        {member.fullBio.split('\n\n').map((paragraph, index) => (
+          <p key={index} className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base mb-4 last:mb-0">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </Modal>
+  )
+}
+
+// Service Modal Component
+function ServiceModal({
+  isOpen,
+  onClose,
+  service
+}: {
+  isOpen: boolean
+  onClose: () => void
+  service: {
+    title: string
+    type: 'image' | 'text'
+    content?: string[]
+  } | null
+}) {
+  if (!service) return null
+  
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-6 pr-8">{service.title}</h3>
+      
+      {service.type === 'image' && service.title === "AI Powered Technology Solutions" && (
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 border border-slate-800">
+          <p className="text-primary font-semibold text-sm mb-4">Modules available on the platform:</p>
+          <p className="text-slate-400 text-sm mb-6">Platform provided by our partner RiskCognition</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              "Risk Register", "Control Library", "RCSA", "Issues & Incidents",
+              "Regulatory Inventory", "KRI Dashboard", "Audit Trail", "Reporting",
+              "Workflow Engine", "AI Assistant", "Data Analytics", "Integration Hub"
+            ].map((module, i) => (
+              <div key={i} className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700 hover:border-primary/50 transition-colors duration-300">
+                <span className="text-white text-xs font-medium">{module}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {service.type === 'image' && service.title === "Managed Services Reimagined" && (
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 border border-slate-800">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4">
+                <Users className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Expert Teams</h4>
+              <p className="text-slate-400 text-sm">Dedicated professionals with deep domain expertise</p>
+            </div>
+            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4">
+                <Zap className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">AI-Enabled</h4>
+              <p className="text-slate-400 text-sm">Leveraging AI for faster, accurate operations</p>
+            </div>
+            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4">
+                <TrendingUp className="w-5 h-5" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Scalable</h4>
+              <p className="text-slate-400 text-sm">Flexible capacity based on your needs</p>
+            </div>
+          </div>
+          <div className="mt-6 pt-6 border-t border-slate-700">
+            <p className="text-slate-300 text-sm text-center">Shared service centre currently located in India</p>
+          </div>
+        </div>
+      )}
+
+      {service.type === 'text' && service.content && (
+        <div className="space-y-6">
+          {service.content.map((section, index) => (
+            <div key={index} className="bg-card border border-border rounded-xl p-5">
+              <p className="text-muted-foreground font-light leading-relaxed text-sm">{section}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </Modal>
+  )
 }
 
 // AboutPage Component
@@ -406,15 +508,17 @@ Track record of deploying AI and ML tools to enhance effectiveness. Creator of a
 Member of the following:
 - Institute of Singapore Chartered Accountants (ISCA)
 - Institute of Chartered Accountants of India (ICAI)
-- Singapore Institute of Directors (SID)`
+- Singapore Institute of Directors (SID)`,
+      linkedin: "https://www.linkedin.com/in/zarsis-merchant"
     },
     {
       name: "Siddharth U.",
       role: "Managing Director, Co-founder & Head Go-to-Market-International",
       initials: "SU",
       gradient: "from-slate-700 to-slate-900",
-      shortBio: "Seasoned professional with extensive experience in corporate governance and strategic advisory. Brings valuable insights from leading financial institutions.",
-      fullBio: ""
+      shortBio: "Seasoned professional with extensive experience in corporate governance and strategic advisory.",
+      fullBio: "",
+      linkedin: "https://www.linkedin.com/in/siddharth-u"
     },
     {
       name: "Pankaj Jaggi",
@@ -428,7 +532,8 @@ Led in-country and regional roles across 17 APAC and EMEA regions, including BPO
 
 Proven track record of solving complex issues, improving operational efficiency, and enhancing customer delivery.
 
-Directed key regulatory programs under US OCC & FRB Consent Order for KYC and Transaction Monitoring across 17 countries.`
+Directed key regulatory programs under US OCC & FRB Consent Order for KYC and Transaction Monitoring across 17 countries.`,
+      linkedin: "https://www.linkedin.com/in/pankaj-jaggi"
     },
     {
       name: "Balaji Katakam",
@@ -440,7 +545,8 @@ Directed key regulatory programs under US OCC & FRB Consent Order for KYC and Tr
 
 He also has strong product and operations knowledge of payments, trade finance & services. He also led a large team at a shared service facility of Citibank in Malaysia. He is also involved in Information Security and items control framework.
 
-Most recently he led cross-functional teams to respond to changes in global sanctions regimes, during the Russia–Ukraine conflict and was consulted extensively by his peers and colleagues.`
+Most recently he led cross-functional teams to respond to changes in global sanctions regimes, during the Russia-Ukraine conflict and was consulted extensively by his peers and colleagues.`,
+      linkedin: "https://www.linkedin.com/in/balaji-katakam"
     }
   ]
 
@@ -482,14 +588,10 @@ Most recently he led cross-functional teams to respond to changes in global sanc
                   <p className="text-lg font-light leading-relaxed mb-10 text-slate-300">
                     To help organisations strengthen regulatory compliance and manage risk with confidence, and achieve sustainable growth through intelligent technology, expert advisory and practical execution.
                   </p>
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="flex justify-end">
                     <div className="group/stat">
-                      <div className="text-5xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover/stat:scale-105">30+</div>
+                      <div className="text-5xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover/stat:scale-105">100+</div>
                       <div className="text-sm text-slate-400">Years Experience</div>
-                    </div>
-                    <div className="group/stat">
-                      <div className="text-5xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover/stat:scale-105">2024</div>
-                      <div className="text-sm text-slate-400">Founded</div>
                     </div>
                   </div>
                 </div>
@@ -501,7 +603,7 @@ Most recently he led cross-functional teams to respond to changes in global sanc
         {/* Our Partner */}
         <div className="mb-24">
           <h2 className="text-3xl font-semibold text-foreground mb-6">Our Partner</h2>
-          <div className="bg-card border border-border rounded-3xl p-8 md:p-10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500">
+          <div className="group bg-card border border-border rounded-3xl p-8 md:p-10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1">
             <p className="text-muted-foreground text-lg font-light leading-relaxed mb-6">
               In November 2025, we entered into a strategic partnership with RiskCognition, a US-registered company with deep domain expertise in AI-powered Compliance and Risk Management systems and shared services.
             </p>
@@ -515,33 +617,11 @@ Most recently he led cross-functional teams to respond to changes in global sanc
               href="https://www.riskcognition.ai" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors duration-300 group"
+              className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors duration-300 group/link"
             >
               Visit our partner website
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover/link:translate-x-1" />
             </a>
-          </div>
-        </div>
-
-        {/* What Differentiates Us */}
-        <div className="mb-24">
-          <h2 className="text-3xl font-semibold text-foreground mb-6">What Differentiates Us</h2>
-          <div className="bg-card border border-border rounded-3xl p-8 md:p-10">
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                "Personalized expert involvement with senior consultants managing engagements",
-                "Cost-effective services through a lean and efficient structure",
-                "Leverages AI and machine learning to automate processes",
-                "Agile, simple, and modular solutions for easy adaptation",
-                "Future-proofing processes by addressing root causes",
-                "Strong partnership model with technology experts"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 group">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                  <p className="text-muted-foreground font-light leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 
@@ -552,28 +632,39 @@ Most recently he led cross-functional teams to respond to changes in global sanc
             {teamMembers.map((member, index) => (
               <div 
                 key={index}
-                className="group bg-card border border-border rounded-2xl p-8 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2 hover:border-primary/30"
+                className="group bg-card border border-border rounded-2xl p-8 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30"
               >
                 <div className={cn(
-                  "w-20 h-20 bg-gradient-to-br rounded-2xl flex items-center justify-center text-white text-2xl font-semibold mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
+                  "w-20 h-20 bg-gradient-to-br rounded-2xl flex items-center justify-center text-white text-2xl font-semibold mb-6 transition-all duration-300 group-hover:scale-110",
                   member.gradient
                 )}>
                   {member.initials}
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">{member.name}</h3>
-                <p className="text-primary font-medium mb-4">{member.role}</p>
+                <p className="text-primary font-medium mb-4 text-sm">{member.role}</p>
                 <p className="text-muted-foreground font-light leading-relaxed text-sm mb-4">
                   {member.shortBio}
                 </p>
-                {member.fullBio && (
-                  <button
-                    onClick={() => setSelectedMember(member)}
-                    className="text-primary font-medium text-sm hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
+                <div className="flex items-center gap-4">
+                  {member.fullBio && (
+                    <button
+                      onClick={() => setSelectedMember(member)}
+                      className="text-primary font-medium text-sm hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    </button>
+                  )}
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+                    aria-label={`${member.name}'s LinkedIn`}
                   >
-                    Read More
-                    <ChevronRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </button>
-                )}
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -590,31 +681,81 @@ Most recently he led cross-functional teams to respond to changes in global sanc
 }
 
 // ServicesPage Component
-function ServicesPage({ navigateTo }: { navigateTo: (page: string) => void }) {
+function ServicesPage() {
+  const [selectedService, setSelectedService] = useState<{
+    title: string
+    type: 'image' | 'text'
+    content?: string[]
+  } | null>(null)
+
   const services = [
     {
       icon: <Zap className="w-10 h-10" />,
       title: "AI Powered Technology Solutions",
       subtitle: "Speed, Scale, and ROI",
       description: "Intelligent automation that plans, decides and reasons like an expert - while retaining human oversight for control.",
-      details: "Our platform delivers 3-5X increased assessment speed, 60-70% reduction in manual efforts, 80-90% reduction in breaches, and 30-40% cost reduction. Features include AI agents & AI teammates that hyper-automate mundane tasks, modular consumption model, flexible architecture, and customizable configurations.",
-      advantages: ["3-5X increased assessment speed", "60-70% reduction in manual efforts", "80-90% reduction in breaches", "30-40% cost reduction", "99% increase in data accuracy", "Flexible & modular architecture"]
+      advantages: [
+        { title: "3-5X increased assessment speed", desc: "AI powered configurable design" },
+        { title: "60-70% reduction in manual efforts", desc: "AI assisted tools drops implementation time over traditional approach" },
+        { title: "80-90% reduction in breaches", desc: "AI based suggestions on risks, controls & remediation plan" },
+        { title: "30-40% cost reduction", desc: "Measurable reduction and increase in operational efficiency" },
+        { title: "99% increase in data accuracy", desc: "100% traceability cuts audit prep time by 70%" },
+        { title: "99% tasks completed timely", desc: "AI tools send alerts & follow ups automatically" }
+      ],
+      platformAdvantages: [
+        "Flexible Architecture - Morphs with uses cases and customer needs",
+        "AI Agents & AI Teammates - Hyper automates the mundane and tedious tasks",
+        "Modular Consumption - You pick and choose the modules you need",
+        "Outcome Based - Gets the job done and delivers value immediately",
+        "Customizable - Custom configurations, dropdowns & values",
+        "Configurable - Configure workflows & notifications"
+      ],
+      modalType: 'image' as const
     },
     {
       icon: <Users className="w-10 h-10" />,
       title: "Advisory Services",
       subtitle: "Solving Challenges, Strengthening Governance, and ROI",
-      description: "Partnering with clients to design, implement & operationalise compliance & risk frameworks, enabled by AI-powered systems & managed services.",
-      details: "We understand existing environments, establish best-in-class frameworks, and provide ongoing BAU support. Our approach includes client environment assessment, blueprint design, pilot cycles, go-live implementation, and continuous risk & compliance operations.",
-      advantages: ["Client environment assessment", "Risk & compliance baseline", "Blueprint & taxonomy design", "Pilot & go-live implementation", "Ongoing BAU support", "Reporting & dashboards"]
+      description: "Partnering with clients to design, implement & operationalise compliance & risk frameworks, enabled by AI-powered systems & managed services. Conducting internal audits & reviews & suggesting corrective action to enhance controls.",
+      phases: [
+        {
+          title: "Understand Existing Environment",
+          subtitle: "Establish the Risk & Compliance baseline data, and problem statement",
+          points: [
+            "Client Environment Assessment: Study business products, processes, policies and controls, existing risk maturity/appetite & regulatory landscape",
+            "Identify Problem Statement, Scope and Objectives: Define service standards and SLAs/KPIs",
+            "Understand Systems, Dataflow & integration and budgets"
+          ]
+        },
+        {
+          title: "Establish Best in Class Framework",
+          subtitle: "Design & Implement Risk & Compliance Management Framework",
+          points: [
+            "Blueprint: Taxonomy, Policy & Procedures, Assessment, Testing, and Governance model",
+            "Pilot cycle",
+            "Go-live (implement): workflows, modules, system automation. Configure AI Platform and migrate legacy data, Setup client end screens and dashboards and staff trainings"
+          ]
+        },
+        {
+          title: "Provide BAU Support",
+          subtitle: "Deliver ongoing Risk & Compliance operations, and Improvements",
+          points: [
+            "Risk updates",
+            "RCSA execution",
+            "Issue and incident management",
+            "Regulatory compliance monitoring",
+            "Reporting & Dashboards"
+          ]
+        }
+      ],
+      modalType: 'text' as const
     },
     {
       icon: <Shield className="w-10 h-10" />,
       title: "Managed Services Reimagined",
       subtitle: "Agility, Expertise, and ROI",
-      description: "Our centres of excellence deliver outsourced compliance and risk management through an AI-enabled operating model.",
-      details: "Shared service centre currently located in India, providing scalable delivery infrastructure with expert teams. We handle risk updates, RCSA execution, issue and incident management, regulatory compliance monitoring, and comprehensive reporting.",
-      advantages: ["AI-enabled operating model", "Scalable delivery infrastructure", "Expert dedicated teams", "RCSA execution", "Regulatory compliance monitoring", "Comprehensive reporting"]
+      description: "Our centres of excellence deliver outsourced compliance and risk management through an AI-enabled operating model. Shared service centre is currently located in India.",
+      modalType: 'image' as const
     }
   ]
 
@@ -629,58 +770,133 @@ function ServicesPage({ navigateTo }: { navigateTo: (page: string) => void }) {
             <span className="block font-semibold">Solutions</span>
           </h1>
           <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
-          <p className="text-xl text-muted-foreground max-w-3xl font-light leading-relaxed">
-            We combine deep expertise with innovative technology to deliver exceptional value through AI-powered systems, expert advisory, and shared services.
-          </p>
         </div>
 
         {/* Services Grid */}
         <div className="space-y-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="grid lg:grid-cols-3">
-                <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative">
-                    <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-2xl font-semibold text-white mb-2">{service.title}</h3>
-                    <p className="text-primary font-medium text-sm">{service.subtitle}</p>
+          {/* Service 1: AI Powered Technology */}
+          <div className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
+            <div className="grid lg:grid-cols-3">
+              <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
+                    {services[0].icon}
                   </div>
+                  <h3 className="text-2xl font-semibold text-white mb-2">{services[0].title}</h3>
+                  <p className="text-primary font-medium text-sm">{services[0].subtitle}</p>
                 </div>
-                <div className="lg:col-span-2 p-10 lg:p-12">
-                  <p className="text-lg text-foreground mb-6 font-light leading-relaxed">
-                    {service.description}
-                  </p>
-                  <p className="text-muted-foreground font-light leading-relaxed mb-6">
-                    {service.details}
-                  </p>
-                  <div className="grid grid-cols-2 gap-3 mb-8">
-                    {service.advantages.map((adv, i) => (
-                      <div key={i} className="flex items-center gap-2 group/adv">
-                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 transition-transform duration-300 group-hover/adv:scale-110" />
-                        <span className="text-sm text-muted-foreground font-light">{adv}</span>
+              </div>
+              <div className="lg:col-span-2 p-10 lg:p-12">
+                <p className="text-lg text-foreground mb-6 font-light leading-relaxed">
+                  {services[0].description}
+                </p>
+                <p className="text-muted-foreground font-semibold mb-4">Advantages of our platform:</p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                  {services[0].advantages.map((adv, i) => (
+                    <div key={i} className="group/adv">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1 transition-transform duration-300 group-hover/adv:scale-110" />
+                        <div>
+                          <span className="text-sm font-medium text-foreground">{adv.title}</span>
+                          <p className="text-xs text-muted-foreground">{adv.desc}</p>
+                        </div>
                       </div>
-                    ))}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-muted-foreground font-semibold mb-3">Advantages of AI platforms:</p>
+                <div className="grid sm:grid-cols-2 gap-2 mb-6">
+                  {services[0].platformAdvantages.map((adv, i) => (
+                    <div key={i} className="flex items-start gap-2 group/adv">
+                      <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0 mt-1.5 transition-transform duration-300 group-hover/adv:scale-110" />
+                      <span className="text-xs text-muted-foreground">{adv}</span>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setSelectedService({ title: services[0].title, type: 'image' })}
+                  className="text-primary font-semibold hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
+                >
+                  Learn More
+                  <ChevronRight className="ml-1 w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-2" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Service 2: Advisory Services */}
+          <div className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
+            <div className="grid lg:grid-cols-3">
+              <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
+                    {services[1].icon}
                   </div>
-                  <button
-                    onClick={() => navigateTo('contact')}
-                    className="text-primary font-semibold hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
-                  >
-                    Learn More
-                    <ChevronRight className="ml-1 w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-2" />
-                  </button>
+                  <h3 className="text-2xl font-semibold text-white mb-2">{services[1].title}</h3>
+                  <p className="text-primary font-medium text-sm">{services[1].subtitle}</p>
+                </div>
+              </div>
+              <div className="lg:col-span-2 p-10 lg:p-12">
+                <p className="text-lg text-foreground mb-8 font-light leading-relaxed">
+                  {services[1].description}
+                </p>
+                <div className="grid md:grid-cols-3 gap-6 mb-6">
+                  {services[1].phases?.map((phase, i) => (
+                    <div key={i} className="group/phase">
+                      <h4 className="text-sm font-semibold text-foreground mb-1">{phase.title}</h4>
+                      <p className="text-xs text-primary mb-3">{phase.subtitle}</p>
+                      <ul className="space-y-2">
+                        {phase.points.map((point, j) => (
+                          <li key={j} className="flex items-start gap-2 group/item">
+                            <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0 mt-1 transition-transform duration-300 group-hover/item:scale-110" />
+                            <span className="text-xs text-muted-foreground">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Service 3: Managed Services */}
+          <div className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
+            <div className="grid lg:grid-cols-3">
+              <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
+                    {services[2].icon}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-2">{services[2].title}</h3>
+                  <p className="text-primary font-medium text-sm">{services[2].subtitle}</p>
+                </div>
+              </div>
+              <div className="lg:col-span-2 p-10 lg:p-12">
+                <p className="text-lg text-foreground mb-8 font-light leading-relaxed">
+                  {services[2].description}
+                </p>
+                <button
+                  onClick={() => setSelectedService({ title: services[2].title, type: 'image' })}
+                  className="text-primary font-semibold hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
+                >
+                  Learn More
+                  <ChevronRight className="ml-1 w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-2" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <ServiceModal
+        isOpen={!!selectedService}
+        onClose={() => setSelectedService(null)}
+        service={selectedService}
+      />
     </div>
   )
 }
@@ -715,13 +931,9 @@ function CaseStudiesPage() {
         <div className="mb-20 animate-in slide-in-from-bottom-4 duration-700">
           <span className="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block">Case Studies</span>
           <h1 className="text-5xl md:text-6xl font-light text-foreground mb-8 leading-tight">
-            Success Stories That
-            <span className="block font-semibold">Drive Results</span>
+            Success Stories
           </h1>
           <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
-          <p className="text-xl text-muted-foreground max-w-3xl font-light leading-relaxed">
-            The firm has delivered successful projects for global organisations, helping them improve governance, risk, and compliance frameworks.
-          </p>
         </div>
 
         {/* Case Studies */}
@@ -729,7 +941,7 @@ function CaseStudiesPage() {
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30"
+              className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1"
             >
               <div className="grid lg:grid-cols-5">
                 <div className={cn("lg:col-span-2 bg-gradient-to-br p-12 text-white relative overflow-hidden", study.gradient)}>
@@ -822,10 +1034,6 @@ function ContactPage() {
             <span className="block font-semibold">Conversation</span>
           </h1>
           <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
-          <p className="text-xl text-muted-foreground max-w-3xl font-light leading-relaxed">
-            Ready to transform your organization? Get in touch with our team to discuss
-            how we can help you achieve your goals.
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
@@ -835,8 +1043,8 @@ function ContactPage() {
             <div className="space-y-6">
               {[
                 { label: 'Your Name', key: 'name', type: 'text', placeholder: 'John Doe' },
-                { label: 'Company Name', key: 'company', type: 'text', placeholder: 'Your Organization' },
-                { label: 'Email Address', key: 'email', type: 'email', placeholder: 'john@example.com' },
+                { label: 'Company Name', key: 'company', type: 'text', placeholder: 'XYZ & Co' },
+                { label: 'Email Address', key: 'email', type: 'email', placeholder: 'john.doe@xyz.com' },
                 { label: 'Contact Number', key: 'phone', type: 'tel', placeholder: '+65 XXXX XXXX' }
               ].map((field) => (
                 <div key={field.key} className="group">
@@ -857,7 +1065,7 @@ function ContactPage() {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={5}
                   className="w-full px-4 py-4 bg-card border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none hover:border-primary/50 text-foreground"
-                  placeholder="Tell us about your needs..."
+                  placeholder="Dear Z S Merchant & Co."
                 />
               </div>
               <button
@@ -884,11 +1092,6 @@ function ContactPage() {
             <div className="relative group mb-8">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
               <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-10 text-white border border-slate-800">
-                <p className="text-lg font-light leading-relaxed mb-10 text-slate-300">
-                  {"Whether you're looking to enhance your governance framework, strengthen compliance,"}
-                  {" or explore innovative technology solutions, we're here to help."}
-                </p>
-
                 <div className="space-y-6">
                   {[
                     { icon: <MapPin className="w-6 h-6" />, label: 'Address', value: '8 Alexandra View, #12-08, Singapore 158747' },
@@ -909,7 +1112,7 @@ function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:border-primary/30">
+            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:border-primary/30 hover:-translate-y-1">
               <h3 className="text-lg font-semibold text-foreground mb-4">Office Hours</h3>
               <div className="space-y-2 text-muted-foreground font-light">
                 <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
