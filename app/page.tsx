@@ -161,24 +161,24 @@ export default function ZSMerchantWebsite() {
 function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
   const differentiators = [
     {
-      icon: <Target className="w-6 h-6" />,
-      title: "Personal Involvement",
-      description: "Senior consultants with over 30 years of experience personally manage client engagements and take responsibility for end-to-end delivery."
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Cost-Effective Solutions",
-      description: "Cost-effective services through a lean and efficient structure, delivering premium quality at competitive rates."
-    },
-    {
       icon: <Zap className="w-6 h-6" />,
       title: "Technology-Driven",
-      description: "Leverages AI and machine learning to automate processes and reduce manual effort for faster, more accurate results."
+      description: "Leverages AI to automate processes and reduce manual effort for faster and accurate results."
     },
     {
       icon: <CheckCircle2 className="w-6 h-6" />,
       title: "Agile & Modular",
       description: "Solutions are agile, simple, and modular, allowing easy adaptation to changing business needs."
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Cost-Effective Solutions",
+      description: "Delivering premium best-in-class quality at competitive rates."
+    },
+    {
+      icon: <Target className="w-6 h-6" />,
+      title: "C-Suite Experts",
+      description: "Senior consultants with over 30 years of experience are responsible for end-to-end delivery."
     }
   ]
 
@@ -203,15 +203,14 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-light text-white mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
-              Strategic Solutions for
+              Strategic Compliance & Risk Management
               <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                Future-Ready Organizations
+                Solutions for Future-Ready Organizations
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
-              Expert guidance in Internal Audit, Governance, Risk, Compliance, and Technology Solutions.
-              We help organisations future-proof their operations for accelerated growth and improvement.
+              Powered by AI-Based Systems, Advisory & Shared Services
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-in slide-in-from-bottom-10 duration-700 delay-300">
@@ -394,21 +393,24 @@ function AboutPage() {
   const teamMembers = [
     {
       name: "Zarsis Merchant",
-      role: "Founder & Managing Director",
+      role: "Managing Director, Founder & Head Compliance & Risk",
       initials: "ZM",
       gradient: "from-primary to-primary/70",
-      shortBio: "Chartered Accountant with extensive senior-level experience in Internal Audit, Governance, Risk Management, and Compliance. Worked with Citibank NA and Change Et Al Consultancy in Asia.",
-      fullBio: `Zarsis Merchant is a Chartered Accountant with extensive senior-level experience in Internal Audit, Governance, Risk Management, and Compliance. He has worked with Citibank NA and Change Et Al Consultancy in Asia and has deep expertise in managing operational, compliance, and credit risks.
+      shortBio: "Chartered Accountant with 30+ years of experience in Compliance, Risk, Internal Audit, and Operations at Citibank & Et Al Consultancy in Asia.",
+      fullBio: `Chartered Accountant with extensive senior-level experience in Internal Audit, Governance, Risk Management, and Compliance with Citibank NA and Change Et Al Consultancy in Asia. Founder of this company in Singapore.
 
-He has developed and implemented risk strategies for digital payments, blockchain, fintech partnerships, digital assets, and ESG initiatives. He is also experienced in using AI and ML tools and is the creator of a proprietary 4-Dimensional Risk Evaluation Model.
+Expert in managing Operational, Compliance, and Credit risks and in establishing robust frameworks, systems, and organizations. Developed and implemented risk strategies for payment digitization, trade blockchain, fintech partnerships, digital assets, and ESG initiatives.
 
-He is a member of ISCA, ICAI, and SID.
+Track record of deploying AI and ML tools to enhance effectiveness. Creator of a proprietary 4-Dimensional Model to evaluate risks and controls, driving actionable insights for improvement.
 
-Founded in 2024, Z S Merchant & Co. was established to provide tailored advisory services to medium-sized enterprises and startups, focusing on Consulting and Advisory in Internal Audit, Governance, Risk, and Compliance, as well as Technology Solutions through strong partnerships.`
+Member of the following:
+- Institute of Singapore Chartered Accountants (ISCA)
+- Institute of Chartered Accountants of India (ICAI)
+- Singapore Institute of Directors (SID)`
     },
     {
       name: "Siddharth U.",
-      role: "Co-Founder",
+      role: "Managing Director, Co-founder & Head Go-to-Market-International",
       initials: "SU",
       gradient: "from-slate-700 to-slate-900",
       shortBio: "Seasoned professional with extensive experience in corporate governance and strategic advisory. Brings valuable insights from leading financial institutions.",
@@ -416,21 +418,29 @@ Founded in 2024, Z S Merchant & Co. was established to provide tailored advisory
     },
     {
       name: "Pankaj Jaggi",
-      role: "Director - Operations",
+      role: "Managing Director & Head Operations, Data & Financial Crime",
       initials: "PJ",
       gradient: "from-slate-600 to-slate-800",
-      shortBio: "Technology expert specializing in GRC solutions and digital transformation. Contributes expertise in implementing scalable technology solutions.",
-      fullBio: ""
+      shortBio: "Banking professional with 30+ years of experience in Consumer & Corporate Operations, Product Mgmt., Risk, Internal Audit, and Compliance including Financial Crime at Citibank Asia & EMEA.",
+      fullBio: `Senior banking executive with 30+ years of experience at Citibank, Asia & EMEA regions, across Consumer and Corporate - Operations, Product Management, Internal Audit, Risk, and Compliance. Acknowledged in the industry as an expert in financial crime, and led transformation programs for Anti-Money Laundering, Sanctions & Fraud Management frameworks, processes & systems at Citibank globally.
+
+Led in-country and regional roles across 17 APAC and EMEA regions, including BPO and vendor operations. Managed 4,000 internal staff and 16,000 vendor staff; strong leadership in multi-site, offshore, and outsourced operations.
+
+Proven track record of solving complex issues, improving operational efficiency, and enhancing customer delivery.
+
+Directed key regulatory programs under US OCC & FRB Consent Order for KYC and Transaction Monitoring across 17 countries.`
     },
     {
       name: "Balaji Katakam",
-      role: "Advisor",
+      role: "Senior Advisor",
       initials: "BK",
       gradient: "from-slate-500 to-slate-700",
-      shortBio: "Chartered Accountant with over 20 years of experience. Former Head of Citibank Asia Transaction Services Financial Crime Risk.",
-      fullBio: `Balaji Katakam is a Chartered Accountant with over 20 years of experience and was recently the Head of Citibank Asia Transaction Services Financial Crime Risk.
+      shortBio: "Chartered Accountant with 20+ years of experience in Financial Crime, Cyber Security & Internal Audit at Citibank Asia.",
+      fullBio: `Chartered Accountant with over 20+ years of experience at Citibank. Was the Head of Services Financial Crime Risk.
 
-He has strong expertise in financial crime risk related to payments, trade finance, and fintech. He has led cross-functional teams to respond to changes in global sanctions regimes, including during the Russia–Ukraine conflict.`
+He also has strong product and operations knowledge of payments, trade finance & services. He also led a large team at a shared service facility of Citibank in Malaysia. He is also involved in Information Security and items control framework.
+
+Most recently he led cross-functional teams to respond to changes in global sanctions regimes, during the Russia–Ukraine conflict and was consulted extensively by his peers and colleagues.`
     }
   ]
 
@@ -454,13 +464,13 @@ He has strong expertise in financial crime risk related to payments, trade finan
               <h2 className="text-3xl font-semibold text-foreground mb-6">Our Story</h2>
               <div className="space-y-6 text-muted-foreground text-lg font-light leading-relaxed">
                 <p>
-                  Founded in 2024 by Zarsis Merchant, a Chartered Accountant with over 30 years of leadership experience at Citibank NA and Change Et Al Consultancy in Asia, Z S Merchant & Co. provides tailored advisory services to medium-sized enterprises and startups.
+                  Established in January 2024, Z S Merchant & Co. was founded by Zarsis Merchant, a Chartered Accountant with more than three decades of senior leadership experience across Citibank N.A. and Change Et Al Consultancy in Asia.
                 </p>
                 <p>
-                  The firm focuses on two main areas: Consulting and Advisory in Internal Audit, Governance, Risk, and Compliance, and Technology Solutions in Governance, Risk, Compliance, and other business areas through strong partnerships.
+                  We specialise in providing strategic Compliance and Risk Management solutions through a combination of AI-based systems, expert advisory, and shared services.
                 </p>
                 <p>
-                  {"The firm's name reflects both the founder's personal commitment and a professional approach to service delivery, helping organisations future-proof their operations for accelerated growth and improvement."}
+                  Our name represents accountability, integrity, and a hands-on leadership ethos, reflecting our commitment to helping organisations build resilient, future-ready operating models that enable growth, trust, and long-term value creation.
                 </p>
               </div>
             </div>
@@ -470,8 +480,7 @@ He has strong expertise in financial crime risk related to payments, trade finan
                 <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-12 text-white border border-slate-800">
                   <h3 className="text-2xl font-semibold mb-8">Our Mission</h3>
                   <p className="text-lg font-light leading-relaxed mb-10 text-slate-300">
-                    To empower organizations with innovative governance, risk, and compliance solutions
-                    that drive sustainable growth and operational excellence.
+                    To help organisations strengthen regulatory compliance and manage risk with confidence, and achieve sustainable growth through intelligent technology, expert advisory and practical execution.
                   </p>
                   <div className="grid grid-cols-2 gap-8">
                     <div className="group/stat">
@@ -486,6 +495,31 @@ He has strong expertise in financial crime risk related to payments, trade finan
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Our Partner */}
+        <div className="mb-24">
+          <h2 className="text-3xl font-semibold text-foreground mb-6">Our Partner</h2>
+          <div className="bg-card border border-border rounded-3xl p-8 md:p-10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500">
+            <p className="text-muted-foreground text-lg font-light leading-relaxed mb-6">
+              In November 2025, we entered into a strategic partnership with RiskCognition, a US-registered company with deep domain expertise in AI-powered Compliance and Risk Management systems and shared services.
+            </p>
+            <p className="text-muted-foreground text-lg font-light leading-relaxed mb-6">
+              Headquartered in New York, with offices in London, Dubai, and New Delhi, RiskCognition brings strong technology capabilities and scalable delivery infrastructure to complement our advisory-led approach.
+            </p>
+            <p className="text-muted-foreground text-lg font-light leading-relaxed mb-8">
+              Together, our partnership combines advanced technology, deep domain expertise, and practical execution to deliver best-in-class solutions and measurable outcomes for our clients.
+            </p>
+            <a 
+              href="https://www.riskcognition.ai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors duration-300 group"
+            >
+              Visit our partner website
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
 
@@ -531,7 +565,7 @@ He has strong expertise in financial crime risk related to payments, trade finan
                 <p className="text-muted-foreground font-light leading-relaxed text-sm mb-4">
                   {member.shortBio}
                 </p>
-                {(member.name === "Zarsis Merchant" || member.name === "Balaji Katakam") && member.fullBio && (
+                {member.fullBio && (
                   <button
                     onClick={() => setSelectedMember(member)}
                     className="text-primary font-medium text-sm hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
@@ -559,28 +593,28 @@ He has strong expertise in financial crime risk related to payments, trade finan
 function ServicesPage({ navigateTo }: { navigateTo: (page: string) => void }) {
   const services = [
     {
-      icon: <Shield className="w-10 h-10" />,
-      title: "Internal Audit & Assurance",
-      description: "The firm audits existing, new, or changed products, processes, systems, and projects.",
-      details: "It assesses risks, identifies control gaps, and suggests or implements solutions to reduce risks. Advanced tools such as Computer-Aided Audit Tools, AI, and Machine Learning are used to make audits more accurate, effective, and timely."
+      icon: <Zap className="w-10 h-10" />,
+      title: "AI Powered Technology Solutions",
+      subtitle: "Speed, Scale, and ROI",
+      description: "Intelligent automation that plans, decides and reasons like an expert - while retaining human oversight for control.",
+      details: "Our platform delivers 3-5X increased assessment speed, 60-70% reduction in manual efforts, 80-90% reduction in breaches, and 30-40% cost reduction. Features include AI agents & AI teammates that hyper-automate mundane tasks, modular consumption model, flexible architecture, and customizable configurations.",
+      advantages: ["3-5X increased assessment speed", "60-70% reduction in manual efforts", "80-90% reduction in breaches", "30-40% cost reduction", "99% increase in data accuracy", "Flexible & modular architecture"]
     },
     {
       icon: <Users className="w-10 h-10" />,
-      title: "Governance & Risk Management Transformation",
-      description: "Z S Merchant & Co. redesigns and implements end-to-end risk governance frameworks.",
-      details: "This includes risk identification, assessment, appetite setting, policy development, system implementation, monitoring, escalation, and reporting. The firm works closely with boards, audit committees, shareholders, and regulators and also supports areas such as business continuity, resilience, third-party risk, KYC, AML, sanctions, and entity incorporation or liquidation."
+      title: "Advisory Services",
+      subtitle: "Solving Challenges, Strengthening Governance, and ROI",
+      description: "Partnering with clients to design, implement & operationalise compliance & risk frameworks, enabled by AI-powered systems & managed services.",
+      details: "We understand existing environments, establish best-in-class frameworks, and provide ongoing BAU support. Our approach includes client environment assessment, blueprint design, pilot cycles, go-live implementation, and continuous risk & compliance operations.",
+      advantages: ["Client environment assessment", "Risk & compliance baseline", "Blueprint & taxonomy design", "Pilot & go-live implementation", "Ongoing BAU support", "Reporting & dashboards"]
     },
     {
-      icon: <FileCheck className="w-10 h-10" />,
-      title: "Regulatory Compliance Excellence",
-      description: "The firm transforms regulatory compliance frameworks and implements systems to ensure regulatory obligations are met accurately and on time.",
-      details: "This includes identifying applicable regulations, interpreting obligations, implementing controls, testing effectiveness, and reporting. The firm also prepares teams for regulatory examinations and addresses issues before they arise."
-    },
-    {
-      icon: <GraduationCap className="w-10 h-10" />,
-      title: "Training & Development",
-      description: "Z S Merchant & Co. delivers tailored in-person or on-site training in internal audit, governance, risk, and compliance.",
-      details: "Training programs can be general or focused on specific topics such as Anti-Money Laundering or sanctions, supported by real case studies."
+      icon: <Shield className="w-10 h-10" />,
+      title: "Managed Services Reimagined",
+      subtitle: "Agility, Expertise, and ROI",
+      description: "Our centres of excellence deliver outsourced compliance and risk management through an AI-enabled operating model.",
+      details: "Shared service centre currently located in India, providing scalable delivery infrastructure with expert teams. We handle risk updates, RCSA execution, issue and incident management, regulatory compliance monitoring, and comprehensive reporting.",
+      advantages: ["AI-enabled operating model", "Scalable delivery infrastructure", "Expert dedicated teams", "RCSA execution", "Regulatory compliance monitoring", "Comprehensive reporting"]
     }
   ]
 
@@ -591,12 +625,12 @@ function ServicesPage({ navigateTo }: { navigateTo: (page: string) => void }) {
         <div className="mb-20 animate-in slide-in-from-bottom-4 duration-700">
           <span className="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block">What We Offer</span>
           <h1 className="text-5xl md:text-6xl font-light text-foreground mb-8 leading-tight">
-            Comprehensive Solutions
-            <span className="block font-semibold">Powered by Innovation</span>
+            Compliance & Risk Management
+            <span className="block font-semibold">Solutions</span>
           </h1>
           <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
           <p className="text-xl text-muted-foreground max-w-3xl font-light leading-relaxed">
-            Z S Merchant & Co. offers consulting and advisory services that help organisations future-proof their business for accelerated growth and improvement.
+            We combine deep expertise with innovative technology to deliver exceptional value through AI-powered systems, expert advisory, and shared services.
           </p>
         </div>
 
@@ -615,16 +649,25 @@ function ServicesPage({ navigateTo }: { navigateTo: (page: string) => void }) {
                     <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
                       {service.icon}
                     </div>
-                    <h3 className="text-2xl font-semibold text-white mb-4">{service.title}</h3>
+                    <h3 className="text-2xl font-semibold text-white mb-2">{service.title}</h3>
+                    <p className="text-primary font-medium text-sm">{service.subtitle}</p>
                   </div>
                 </div>
                 <div className="lg:col-span-2 p-10 lg:p-12">
                   <p className="text-lg text-foreground mb-6 font-light leading-relaxed">
                     {service.description}
                   </p>
-                  <p className="text-muted-foreground font-light leading-relaxed mb-8">
+                  <p className="text-muted-foreground font-light leading-relaxed mb-6">
                     {service.details}
                   </p>
+                  <div className="grid grid-cols-2 gap-3 mb-8">
+                    {service.advantages.map((adv, i) => (
+                      <div key={i} className="flex items-center gap-2 group/adv">
+                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 transition-transform duration-300 group-hover/adv:scale-110" />
+                        <span className="text-sm text-muted-foreground font-light">{adv}</span>
+                      </div>
+                    ))}
+                  </div>
                   <button
                     onClick={() => navigateTo('contact')}
                     className="text-primary font-semibold hover:text-primary/80 inline-flex items-center group/btn transition-all duration-300"
@@ -848,8 +891,8 @@ function ContactPage() {
 
                 <div className="space-y-6">
                   {[
-                    { icon: <MapPin className="w-6 h-6" />, label: 'Address', value: '8 Alexandra View, Singapore' },
-                    { icon: <Phone className="w-6 h-6" />, label: 'Phone', value: '+65 XXXX XXXX' },
+                    { icon: <MapPin className="w-6 h-6" />, label: 'Address', value: '8 Alexandra View, #12-08, Singapore 158747' },
+                    { icon: <Phone className="w-6 h-6" />, label: 'Phone', value: '+65 9154 3784' },
                     { icon: <Mail className="w-6 h-6" />, label: 'Email', value: 'info@zsmerchant.com' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start group/item">
@@ -916,9 +959,9 @@ function Footer({ navigateTo }: { navigateTo: (page: string) => void }) {
           <div>
             <h4 className="text-lg font-semibold mb-6">Contact</h4>
             <div className="space-y-3 text-slate-400 font-light">
-              <p>8 Alexandra View, Singapore</p>
+              <p>8 Alexandra View, #12-08, Singapore 158747</p>
               <p>info@zsmerchant.com</p>
-              <p>+65 XXXX XXXX</p>
+              <p>+65 9154 3784</p>
             </div>
           </div>
         </div>
