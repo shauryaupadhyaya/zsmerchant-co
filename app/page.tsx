@@ -56,12 +56,12 @@ export default function ZSMerchantWebsite() {
             >
               <h1 className={cn(
                 "text-2xl font-semibold transition-all duration-300 group-hover:scale-[1.02]",
-                currentPage === 'home' && !scrolled ? "text-white" : "text-foreground"
+                currentPage === 'home' && !scrolled ? "text-slate-900" : "text-foreground"
               )}>
                 Z S Merchant{' '}
                 <span className={cn(
                   "font-light transition-colors duration-300",
-                  currentPage === 'home' && !scrolled ? "text-primary/90" : "text-primary"
+                  currentPage === 'home' && !scrolled ? "text-primary" : "text-primary"
                 )}>& Co.</span>
               </h1>
             </button>
@@ -76,7 +76,7 @@ export default function ZSMerchantWebsite() {
                     currentPage === item.id
                       ? "text-primary"
                       : currentPage === 'home' && !scrolled 
-                        ? "text-white/70 hover:text-white"
+                        ? "text-slate-700 hover:text-slate-900"
                         : "text-muted-foreground hover:text-foreground"
                   )}
                 >
@@ -95,7 +95,7 @@ export default function ZSMerchantWebsite() {
               className={cn(
                 "md:hidden p-2 rounded-lg transition-colors duration-200",
                 currentPage === 'home' && !scrolled 
-                  ? "text-white hover:bg-white/10" 
+                  ? "text-slate-900 hover:bg-slate-200/50" 
                   : "text-foreground hover:bg-muted"
               )}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -114,7 +114,7 @@ export default function ZSMerchantWebsite() {
           className={cn(
             "md:hidden overflow-hidden transition-all duration-500 ease-out border-t",
             currentPage === 'home' && !scrolled 
-              ? "bg-slate-900/95 backdrop-blur-xl border-white/10"
+              ? "bg-slate-50/95 backdrop-blur-xl border-slate-200"
               : "bg-background/95 backdrop-blur-xl border-border/50",
             isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           )}
@@ -133,7 +133,7 @@ export default function ZSMerchantWebsite() {
                       ? "text-primary bg-primary/20"
                       : "text-primary bg-primary/10"
                     : currentPage === 'home' && !scrolled
-                      ? "text-white/70 hover:text-white hover:bg-white/10"
+                      ? "text-slate-700 hover:text-slate-900 hover:bg-slate-200/50"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
@@ -187,12 +187,12 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100">
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-32">
@@ -204,14 +204,14 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-light text-white mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
+            <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
               Strategic Compliance & Risk Management
-              <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-cyan-600 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Solutions for Future-Ready Organizations
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
+            <p className="text-xl md:text-2xl text-slate-700 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
               Powered by AI-Based Systems, Advisory & Shared Services
             </p>
 
@@ -227,7 +227,7 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
               </button>
               <button
                 onClick={() => navigateTo('contact')}
-                className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 hover:border-white/40 hover:bg-white/10 text-white rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
+                className="px-8 py-4 bg-slate-900/5 backdrop-blur-sm border border-slate-300 hover:border-slate-400 hover:bg-slate-900/10 text-slate-900 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 Get In Touch
               </button>
@@ -268,20 +268,20 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-200" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 text-balance">
+          <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 text-balance">
             Ready to Transform Your Organization?
           </h2>
-          <p className="text-xl text-slate-300 mb-12 font-light max-w-2xl mx-auto">
+          <p className="text-xl text-slate-700 mb-12 font-light max-w-2xl mx-auto">
             {"Let's discuss how our expertise can help you achieve your goals"}
           </p>
           <button
             onClick={() => navigateTo('contact')}
-            className="group px-10 py-4 bg-white text-slate-900 rounded-xl font-semibold hover:bg-slate-100 transition-all duration-300 inline-flex items-center shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="group px-10 py-4 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all duration-300 inline-flex items-center shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Start a Conversation
             <ChevronRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -343,7 +343,7 @@ function Modal({
         style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
       />
       <div
-        className="relative bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 max-w-3xl w-full max-h-[85vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
+        className="relative bg-card border border-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 max-w-6xl w-full max-h-[85vh] overflow-y-auto animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -422,50 +422,249 @@ function ServiceModal({
       <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-6 pr-8">{service.title}</h3>
       
       {service.type === 'image' && service.title === "AI Powered Technology Solutions" && (
+        <div className="space-y-8">
         <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 border border-slate-800">
-          <p className="text-primary font-semibold text-sm mb-4">Modules available on the platform:</p>
-          <p className="text-slate-400 text-sm mb-6">Platform provided by our partner RiskCognition</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              "Risk Register", "Control Library", "RCSA", "Issues & Incidents",
-              "Regulatory Inventory", "KRI Dashboard", "Audit Trail", "Reporting",
-              "Workflow Engine", "AI Assistant", "Data Analytics", "Integration Hub"
-            ].map((module, i) => (
-              <div key={i} className="bg-slate-800/50 rounded-lg p-3 text-center border border-slate-700 hover:border-primary/50 transition-colors duration-300">
-                <span className="text-white text-xs font-medium">{module}</span>
+            <p className="text-primary font-semibold text-sm mb-6">Modules available on the platform:</p>
+            
+            {/* Regulatory Compliance Platform */}
+            <div className="mb-8">
+              <h4 className="text-white font-semibold text-lg mb-4">Regulatory Compliance Platform</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">1</span>
+                    <h5 className="text-white font-semibold text-sm">Regulations</h5>
               </div>
-            ))}
+                  <p className="text-primary text-xs font-medium mb-2">Fast & Complete</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Identify every applicable regulation</li>
+                    <li>• Multiple jurisdictions & languages</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">2</span>
+                    <h5 className="text-white font-semibold text-sm">Obligations</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Comprehensive & Risk based</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Regulations with one or multiple obligations</li>
+                    <li>• Risk based approach</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">3</span>
+                    <h5 className="text-white font-semibold text-sm">Policy, Procedure & Controls</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Upgrade</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Map current policy & controls for identified obligations</li>
+                    <li>• Generate updated policy & controls</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">4</span>
+                    <h5 className="text-white font-semibold text-sm">Gap Analysis & Remediation</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Robust</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Rapid analysis of current policy & controls against obligations</li>
+                    <li>• Rationalize, suggest remediation & responsibilities for gaps</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">5</span>
+                    <h5 className="text-white font-semibold text-sm">Change Management</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Seamless</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Obligations assessments of new & changed</li>
+                    <li>• Gap analysis with existing policy & controls</li>
+                    <li>• Cross border & multi-language auto translation and auto mapping</li>
+                    <li>• Proactive training for upcoming standards</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">6</span>
+                    <h5 className="text-white font-semibold text-sm">Regulatory Reporting</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Timely & Accurate</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Automatic generation & submission</li>
+                    <li>• Self attested</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            {/* Enterprise Risk Management Platform */}
+            <div className="mb-6">
+              <h4 className="text-white font-semibold text-lg mb-4">Enterprise Risk Management Platform</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">1</span>
+                    <h5 className="text-white font-semibold text-sm">Risk Management Framework</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Framework</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Identify enterprise risks</li>
+                    <li>• Risk registry & taxonomy</li>
+                    <li>• Inherent Risk Assessments</li>
+                    <li>• Residual risk. Risk appetite & remediation plans</li>
+                    <li>• Heatmaps & management reports</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">2</span>
+                    <h5 className="text-white font-semibold text-sm">Issues Management</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Permanent Resolve</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Integrated items & root case remediation</li>
+                    <li>• Analysis & Permanent fixes</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">3</span>
+                    <h5 className="text-white font-semibold text-sm">Audit</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Planning & Execution</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Risk based audit plan & testing strategies- design & operating effectiveness</li>
+                    <li>• Reporting & remediation plans</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">4</span>
+                    <h5 className="text-white font-semibold text-sm">Third Party Management</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Robust Oversight</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Analysis based on vendor documents</li>
+                    <li>• Designing sending site controls, periodic testing & remediation</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">5</span>
+                    <h5 className="text-white font-semibold text-sm">Business Continuity & Resilience</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Ready 20x?</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Autonomous business impact analysis</li>
+                    <li>• Resilience plans, testing & reporting</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary font-bold text-lg">6</span>
+                    <h5 className="text-white font-semibold text-sm">Risk & Control Self Assessment (RCSA)</h5>
+                  </div>
+                  <p className="text-primary text-xs font-medium mb-2">Risk Identification & Improvement</p>
+                  <ul className="text-slate-300 text-xs space-y-1">
+                    <li>• Risk based plans build & testing strategies for controls</li>
+                    <li>• Analysis, control gaps & remediation plans</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="pt-4 border-t border-slate-700">
+              <p className="text-slate-300 text-sm text-center">Platform provided by our partner RiskCognition</p>
+            </div>
           </div>
         </div>
       )}
 
       {service.type === 'image' && service.title === "Managed Services Reimagined" && (
+        <div className="space-y-6">
         <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 border border-slate-800">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4">
-                <Users className="w-5 h-5" />
+            <p className="text-slate-300 text-sm mb-6">Our centres of excellence deliver outsourced compliance and risk management through an AI-enabled operating model. Shared service centre is currently located in India.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-primary/50 transition-colors">
+                <h4 className="text-white font-semibold mb-3 text-sm">Regulatory Risks</h4>
+                <div className="space-y-2">
+                  <div className="bg-slate-900/50 rounded-lg p-3">
+                    <h5 className="text-primary font-semibold text-xs mb-1">Cognitive Compliance</h5>
+                    <ul className="text-slate-300 text-xs space-y-1">
+                      <li>• Regulatory Mapping</li>
+                      <li>• Assessment/ Gap Analysis</li>
+                      <li>• Change Management</li>
+                      <li>• Policies & Controls</li>
+                      <li>• Remediation</li>
+                      <li>• Certifications against Leading Frameworks</li>
+                    </ul>
               </div>
-              <h4 className="text-white font-semibold mb-2">Expert Teams</h4>
-              <p className="text-slate-400 text-sm">Dedicated professionals with deep domain expertise</p>
             </div>
-            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4">
-                <Zap className="w-5 h-5" />
               </div>
-              <h4 className="text-white font-semibold mb-2">AI-Enabled</h4>
-              <p className="text-slate-400 text-sm">Leveraging AI for faster, accurate operations</p>
+              
+              <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-primary/50 transition-colors">
+                <h4 className="text-white font-semibold mb-3 text-sm">Vendors/ Third Parties Risks</h4>
+                <div className="space-y-2">
+                  <div className="bg-slate-900/50 rounded-lg p-3">
+                    <h5 className="text-primary font-semibold text-xs mb-1">Cognitive Risk</h5>
+                    <ul className="text-slate-300 text-xs space-y-1">
+                      <li>• Risk Identification & Assessment</li>
+                      <li>• Policies & Controls</li>
+                      <li>• Metrics (KRI, KCI)</li>
+                      <li>• RCSA & Scenario Analysis</li>
+                      <li>• Issue Management</li>
+                      <li>• Management Reporting</li>
+                    </ul>
             </div>
-            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
-              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-4">
-                <TrendingUp className="w-5 h-5" />
               </div>
-              <h4 className="text-white font-semibold mb-2">Scalable</h4>
-              <p className="text-slate-400 text-sm">Flexible capacity based on your needs</p>
             </div>
+              
+              <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-primary/50 transition-colors">
+                <h4 className="text-white font-semibold mb-3 text-sm">Cyber/ External Threats Risks</h4>
+                <div className="space-y-2">
+                  <div className="bg-slate-900/50 rounded-lg p-3">
+                    <h5 className="text-primary font-semibold text-xs mb-1">Cognitive Dps</h5>
+                    <ul className="text-slate-300 text-xs space-y-1">
+                      <li>• Business Resilience</li>
+                      <li>• Third-Party Risk Management (TPRM)</li>
+                      <li>• Contractual Obligation Management</li>
+                      <li>• RFP & Questionnaires Management</li>
+                      <li>• Internal Audit/ Assurance Services</li>
+                    </ul>
           </div>
-          <div className="mt-6 pt-6 border-t border-slate-700">
-            <p className="text-slate-300 text-sm text-center">Shared service centre currently located in India</p>
+                </div>
+              </div>
+              
+              <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-primary/50 transition-colors">
+                <h4 className="text-white font-semibold mb-3 text-sm">Operational Risks</h4>
+                <div className="space-y-2">
+                  <div className="bg-slate-900/50 rounded-lg p-3">
+                    <h5 className="text-primary font-semibold text-xs mb-1">Managed Services</h5>
+                    <ul className="text-slate-300 text-xs space-y-1">
+                      <li>• Creation- Program, Framework</li>
+                      <li>• Maintenance- Policies, Controls, Procedures</li>
+                      <li>• Remediation- Issue Management, Updates to Policies, Controls</li>
+                      <li>• Reporting</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
