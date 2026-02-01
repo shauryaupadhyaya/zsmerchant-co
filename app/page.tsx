@@ -56,7 +56,7 @@ export default function ZSMerchantWebsite() {
             >
               <h1 className={cn(
                 "text-2xl font-semibold transition-all duration-300 group-hover:scale-[1.02]",
-                currentPage === 'home' && !scrolled ? "text-white" : "text-foreground"
+                currentPage === 'home' && !scrolled ? "text-slate-900" : "text-foreground"
               )}>
                 Z S Merchant{' '}
                 <span className={cn(
@@ -76,7 +76,7 @@ export default function ZSMerchantWebsite() {
                     currentPage === item.id
                       ? "text-primary"
                       : currentPage === 'home' && !scrolled 
-                        ? "text-white/80 hover:text-white"
+                        ? "text-blue-900/80 hover:text-blue-900"
                         : "text-muted-foreground hover:text-foreground"
                   )}
                 >
@@ -95,7 +95,7 @@ export default function ZSMerchantWebsite() {
               className={cn(
                 "md:hidden p-2 rounded-lg transition-colors duration-200",
                 currentPage === 'home' && !scrolled 
-                  ? "text-white hover:bg-white/10" 
+                  ? "text-blue-900 hover:bg-blue-100/50" 
                   : "text-foreground hover:bg-muted"
               )}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -114,7 +114,7 @@ export default function ZSMerchantWebsite() {
           className={cn(
             "md:hidden overflow-hidden transition-all duration-500 ease-out border-t",
             currentPage === 'home' && !scrolled 
-              ? "bg-blue-900/95 backdrop-blur-xl border-blue-800"
+              ? "bg-blue-50/95 backdrop-blur-xl border-blue-200"
               : "bg-background/95 backdrop-blur-xl border-border/50",
             isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           )}
@@ -133,7 +133,7 @@ export default function ZSMerchantWebsite() {
                       ? "text-primary bg-primary/20"
                       : "text-primary bg-primary/10"
                     : currentPage === 'home' && !scrolled
-                      ? "text-white/80 hover:text-white hover:bg-white/10"
+                      ? "text-blue-900/80 hover:text-blue-900 hover:bg-blue-100/50"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
@@ -187,31 +187,31 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-blue-50">
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-32">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 mb-8 animate-in slide-in-from-bottom-4 duration-700">
-              <span className="flex items-center gap-2 px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium tracking-wide border border-primary/30 backdrop-blur-sm">
+              <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium tracking-wide border border-primary/20 backdrop-blur-sm">
                 <Sparkles className="w-4 h-4" />
                 CONSULTING & ADVISORY EXCELLENCE
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-light text-white mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
+            <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
               Strategic Compliance & Risk Management
-              <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Solutions for Future-Ready Organizations
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-blue-100 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
+            <p className="text-xl md:text-2xl text-blue-900/80 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
               Powered by AI-Based Systems, Advisory & Shared Services
             </p>
 
@@ -227,7 +227,7 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
               </button>
               <button
                 onClick={() => navigateTo('contact')}
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 hover:bg-white/20 text-white rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
+                className="px-8 py-4 bg-blue-100/50 backdrop-blur-sm border border-blue-300 hover:border-blue-400 hover:bg-blue-100/80 text-blue-900 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 Get In Touch
               </button>
@@ -268,15 +268,15 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-800 via-blue-700 to-blue-800" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-light text-white mb-6 text-balance">
+          <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 text-balance">
             Ready to Transform Your Organization?
           </h2>
-          <p className="text-xl text-blue-100 mb-12 font-light max-w-2xl mx-auto">
+          <p className="text-xl text-blue-900/80 mb-12 font-light max-w-2xl mx-auto">
             {"Let's discuss how our expertise can help you achieve your goals"}
           </p>
           <button
