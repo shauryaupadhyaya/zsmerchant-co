@@ -76,7 +76,7 @@ export default function ZSMerchantWebsite() {
                     currentPage === item.id
                       ? "text-primary"
                       : currentPage === 'home' && !scrolled 
-                        ? "text-slate-700 hover:text-slate-900"
+                        ? "text-blue-900/80 hover:text-blue-900"
                         : "text-muted-foreground hover:text-foreground"
                   )}
                 >
@@ -95,7 +95,7 @@ export default function ZSMerchantWebsite() {
               className={cn(
                 "md:hidden p-2 rounded-lg transition-colors duration-200",
                 currentPage === 'home' && !scrolled 
-                  ? "text-slate-900 hover:bg-slate-200/50" 
+                  ? "text-blue-900 hover:bg-blue-100/50" 
                   : "text-foreground hover:bg-muted"
               )}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -114,7 +114,7 @@ export default function ZSMerchantWebsite() {
           className={cn(
             "md:hidden overflow-hidden transition-all duration-500 ease-out border-t",
             currentPage === 'home' && !scrolled 
-              ? "bg-slate-50/95 backdrop-blur-xl border-slate-200"
+              ? "bg-blue-50/95 backdrop-blur-xl border-blue-200"
               : "bg-background/95 backdrop-blur-xl border-border/50",
             isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           )}
@@ -133,7 +133,7 @@ export default function ZSMerchantWebsite() {
                       ? "text-primary bg-primary/20"
                       : "text-primary bg-primary/10"
                     : currentPage === 'home' && !scrolled
-                      ? "text-slate-700 hover:text-slate-900 hover:bg-slate-200/50"
+                      ? "text-blue-900/80 hover:text-blue-900 hover:bg-blue-100/50"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
@@ -187,12 +187,12 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-blue-50">
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-32">
@@ -206,12 +206,12 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 
             <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
               Strategic Compliance & Risk Management
-              <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-cyan-600 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Solutions for Future-Ready Organizations
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-700 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
+            <p className="text-xl md:text-2xl text-blue-900/80 mb-12 leading-relaxed font-light max-w-3xl animate-in slide-in-from-bottom-8 duration-700 delay-200 text-pretty">
               Powered by AI-Based Systems, Advisory & Shared Services
             </p>
 
@@ -227,7 +227,7 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
               </button>
               <button
                 onClick={() => navigateTo('contact')}
-                className="px-8 py-4 bg-slate-900/5 backdrop-blur-sm border border-slate-300 hover:border-slate-400 hover:bg-slate-900/10 text-slate-900 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
+                className="px-8 py-4 bg-blue-100/50 backdrop-blur-sm border border-blue-300 hover:border-blue-400 hover:bg-blue-100/80 text-blue-900 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
                 Get In Touch
               </button>
@@ -268,20 +268,20 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-200" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 text-center">
           <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-6 text-balance">
             Ready to Transform Your Organization?
           </h2>
-          <p className="text-xl text-slate-700 mb-12 font-light max-w-2xl mx-auto">
+          <p className="text-xl text-blue-900/80 mb-12 font-light max-w-2xl mx-auto">
             {"Let's discuss how our expertise can help you achieve your goals"}
           </p>
           <button
             onClick={() => navigateTo('contact')}
-            className="group px-10 py-4 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all duration-300 inline-flex items-center shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="group px-10 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Start a Conversation
             <ChevronRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -759,7 +759,7 @@ Most recently he led cross-functional teams to respond to changes in global sanc
             Building Trust Through
             <span className="block font-semibold">Excellence & Innovation</span>
           </h1>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-8" />
         </div>
 
         {/* Story */}
@@ -781,7 +781,7 @@ Most recently he led cross-functional teams to respond to changes in global sanc
             </div>
             <div className="animate-in slide-in-from-right duration-700 delay-300">
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
                 <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-12 text-white border border-slate-800">
                   <h3 className="text-2xl font-semibold mb-8">Our Mission</h3>
                   <p className="text-lg font-light leading-relaxed mb-10 text-slate-300">
@@ -789,7 +789,7 @@ Most recently he led cross-functional teams to respond to changes in global sanc
                   </p>
                   <div className="flex justify-end">
                     <div className="group/stat">
-                      <div className="text-5xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover/stat:scale-105">100+</div>
+                      <div className="text-5xl font-bold bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent mb-2 transition-transform duration-300 group-hover/stat:scale-105">100+</div>
                       <div className="text-sm text-slate-400">Years Experience</div>
                     </div>
                   </div>
@@ -968,7 +968,7 @@ function ServicesPage() {
             Compliance & Risk Management
             <span className="block font-semibold">Solutions</span>
           </h1>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-8" />
         </div>
 
         {/* Services Grid */}
@@ -979,7 +979,7 @@ function ServicesPage() {
               <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
+                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
                     {services[0].icon}
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2">{services[0].title}</h3>
@@ -1030,7 +1030,7 @@ function ServicesPage() {
               <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
+                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
                     {services[1].icon}
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2">{services[1].title}</h3>
@@ -1067,7 +1067,7 @@ function ServicesPage() {
               <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-cyan-400">
+                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
                     {services[2].icon}
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2">{services[2].title}</h3>
@@ -1132,7 +1132,7 @@ function CaseStudiesPage() {
           <h1 className="text-5xl md:text-6xl font-light text-foreground mb-8 leading-tight">
             Success Stories
           </h1>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-8" />
         </div>
 
         {/* Case Studies */}
@@ -1232,7 +1232,7 @@ function ContactPage() {
             {"Let's"} Start a
             <span className="block font-semibold">Conversation</span>
           </h1>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full mb-8" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-8" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
