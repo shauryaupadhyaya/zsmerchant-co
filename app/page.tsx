@@ -164,7 +164,7 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
   const differentiators = [
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Technology-Supported",
+      title: "Technology Supported",
       description: "Leverages AI to automate processes and reduce manual effort for faster and accurate results."
     },
     {
