@@ -887,20 +887,38 @@ function ServicesPage() {
       subtitle: "Speed, Scale, and ROI",
       description: "Intelligent automation that plans, decides and reasons like an expert - while retaining human oversight for control.",
       advantages: [
-        { title: "3-5X increased assessment speed", desc: "AI powered configurable design" },
-        { title: "60-70% reduction in manual efforts", desc: "AI assisted tools drops implementation time over traditional approach" },
-        { title: "80-90% reduction in breaches", desc: "AI based suggestions on risks, controls & remediation plan" },
-        { title: "30-40% cost reduction", desc: "Measurable reduction and increase in operational efficiency" },
-        { title: "99% increase in data accuracy", desc: "100% traceability cuts audit prep time by 70%" },
-        { title: "99% tasks completed timely", desc: "AI tools send alerts & follow ups automatically" }
+        {
+          title: "3-5X increased assessment speed",
+          desc: "AI powered configurable design that standardises assessments, reduces rework, and enables faster approvals across multiple business units."
+        },
+        {
+          title: "60-70% reduction in manual efforts",
+          desc: "AI assisted tools that drop implementation time versus traditional approaches by automating reviews, documentation and follow-up actions."
+        },
+        {
+          title: "80-90% reduction in breaches",
+          desc: "AI based suggestions on risks, controls and remediation plans that proactively highlight gaps before they turn into real incidents."
+        },
+        {
+          title: "30-40% cost reduction",
+          desc: "Measurable reduction in operational spend, with improved productivity and utilisation of specialist resources across the risk lifecycle."
+        },
+        {
+          title: "99% increase in data accuracy",
+          desc: "100% traceability that cuts audit preparation time by up to 70%, while improving confidence in the underlying data and reports."
+        },
+        {
+          title: "99% tasks completed timely",
+          desc: "AI tools that send alerts, nudges and follow ups automatically, helping owners close actions on time and stay ahead of deadlines."
+        }
       ],
       platformAdvantages: [
-        "Flexible Architecture - Morphs with uses cases and customer needs",
-        "AI Agents & AI Teammates - Hyper automates the mundane and tedious tasks",
-        "Modular Consumption - You pick and choose the modules you need",
-        "Outcome Based - Gets the job done and delivers value immediately",
-        "Customizable - Custom configurations, dropdowns & values",
-        "Configurable - Configure workflows & notifications"
+        "Flexible Architecture - Morphs with use cases, customer needs and regulatory changes without requiring heavy rebuilds or long transformation projects.",
+        "AI Agents & AI Teammates - Hyper‑automates the mundane and tedious tasks so teams can focus on judgement, oversight and high‑value decision making.",
+        "Modular Consumption - You pick and choose the modules you need, and add new capabilities over time as your organisation and risk profile evolve.",
+        "Outcome Based - Gets the job done and delivers value immediately, with pre‑built journeys, dashboards and workflows mapped to real use cases.",
+        "Customizable - Custom configurations, dropdowns and values aligned to your taxonomy, internal language and operating model across functions.",
+        "Configurable - Configure workflows, notifications and approvals so that responsibilities, hand‑offs and governance are clear and consistently applied."
       ],
       modalType: 'image' as const
     },
