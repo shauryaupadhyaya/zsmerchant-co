@@ -1337,6 +1337,7 @@ function ContactPage() {
 
 // Footer Component
 function Footer({ navigateTo }: { navigateTo: (page: string) => void }) {
+  const currentYear = new Date().getFullYear()
   return (
     <footer className="bg-slate-950 text-white py-20 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -1379,7 +1380,7 @@ function Footer({ navigateTo }: { navigateTo: (page: string) => void }) {
         </div>
         <div className="border-t border-slate-800 pt-8 text-center">
           <p className="text-slate-500 font-light text-sm">
-            © 2024 Z S Merchant & Co. All rights reserved.
+            © {currentYear} Z S Merchant & Co. All rights reserved.
           </p>
         </div>
       </div>
