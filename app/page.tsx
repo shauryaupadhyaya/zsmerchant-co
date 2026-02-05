@@ -197,13 +197,6 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-32">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 mb-8 animate-in slide-in-from-bottom-4 duration-700">
-              <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium tracking-wide border border-primary/20 backdrop-blur-sm">
-                <Sparkles className="w-4 h-4" />
-                CONSULTING & ADVISORY EXCELLENCE
-              </span>
-            </div>
-
             <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
               Strategic Compliance & Risk Management
               <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
@@ -1008,8 +1001,8 @@ function ServicesPage() {
                 <div className="grid sm:grid-cols-2 gap-2 mb-6">
                   {services[0].platformAdvantages.map((adv, i) => (
                     <div key={i} className="flex items-start gap-2 group/adv">
-                      <CheckCircle2 className="w-3 h-3 text-primary flex-shrink-0 mt-1.5 transition-transform duration-300 group-hover/adv:scale-110" />
-                      <span className="text-xs text-muted-foreground">{adv}</span>
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1 transition-transform duration-300 group-hover/adv:scale-110" />
+                      <span className="text-sm text-muted-foreground">{adv}</span>
                     </div>
                   ))}
                 </div>
