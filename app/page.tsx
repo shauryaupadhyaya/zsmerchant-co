@@ -989,20 +989,19 @@ function ServicesPage() {
                     <div key={i} className="group/adv">
                       <div className="flex items-start gap-2">
                         <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1 transition-transform duration-300 group-hover/adv:scale-110" />
-                        <div>
-                          <span className="text-sm font-medium text-foreground">{adv.title}</span>
-                          <p className="text-xs text-muted-foreground">{adv.desc}</p>
-                        </div>
+                        <p className="text-sm text-muted-foreground">
+                          {adv.title} - {adv.desc}
+                        </p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <p className="text-muted-foreground font-semibold mb-3">Advantages of AI platforms:</p>
-                <div className="grid sm:grid-cols-2 gap-2 mb-6">
+                <p className="text-muted-foreground font-semibold mb-4">Advantages of AI platforms:</p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-6">
                   {services[0].platformAdvantages.map((adv, i) => (
                     <div key={i} className="flex items-start gap-2 group/adv">
                       <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1 transition-transform duration-300 group-hover/adv:scale-110" />
-                      <span className="text-sm text-muted-foreground">{adv}</span>
+                      <p className="text-sm text-muted-foreground">{adv}</p>
                     </div>
                   ))}
                 </div>
