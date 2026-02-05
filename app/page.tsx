@@ -701,7 +701,7 @@ Member of the following:
 - Institute of Singapore Chartered Accountants (ISCA)
 - Institute of Chartered Accountants of India (ICAI)
 - Singapore Institute of Directors (SID)`,
-      linkedin: "https://www.linkedin.com/in/zarsis-merchant"
+      linkedin: "https://www.linkedin.com/in/zarsismerchant/"
     },
     {
       name: "Siddharth U.",
@@ -710,7 +710,7 @@ Member of the following:
       gradient: "from-slate-700 to-slate-900",
       shortBio: "Seasoned professional with extensive experience in corporate governance and strategic advisory.",
       fullBio: "",
-      linkedin: "https://www.linkedin.com/in/siddharth-u"
+      linkedin: "https://www.linkedin.com/in/siddharthupadhyaya/"
     },
     {
       name: "Pankaj Jaggi",
@@ -725,7 +725,7 @@ Led in-country and regional roles across 17 APAC and EMEA regions, including BPO
 Proven track record of solving complex issues, improving operational efficiency, and enhancing customer delivery.
 
 Directed key regulatory programs under US OCC & FRB Consent Order for KYC and Transaction Monitoring across 17 countries.`,
-      linkedin: "https://www.linkedin.com/in/pankaj-jaggi"
+      linkedin: "https://www.linkedin.com/in/pankaj-jaggi-41862b4"
     },
     {
       name: "Balaji Katakam",
@@ -738,7 +738,7 @@ Directed key regulatory programs under US OCC & FRB Consent Order for KYC and Tr
 He also has strong product and operations knowledge of payments, trade finance & services. He also led a large team at a shared service facility of Citibank in Malaysia. He is also involved in Information Security and items control framework.
 
 Most recently he led cross-functional teams to respond to changes in global sanctions regimes, during the Russia-Ukraine conflict and was consulted extensively by his peers and colleagues.`,
-      linkedin: "https://www.linkedin.com/in/balaji-katakam"
+      linkedin: "https://www.linkedin.com/in/balaji-katakam18/"
     }
   ]
 
