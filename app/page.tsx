@@ -708,7 +708,7 @@ Member of the following:
       role: "Managing Director, Co-founder & Head Go-to-Market-International",
       initials: "SU",
       gradient: "from-slate-700 to-slate-900",
-      shortBio: "Seasoned professional with over 24 years of experience in digital business and ecosystem design, he specializes in building scalable, repeatable commercial models that align partner capabilities with enterprise customer outcomes. His strong background in design, entrepreneurship, and innovation enables him to create impactful partnership strategies that drive market share, commercial value, and customer satisfaction.",
+      shortBio: "Seasoned professional with over 24 years of experience in digital business and ecosystem design, he specializes in building scalable, repeatable commercial models that align partner capabilities with enterprise customer outcomes.",
       fullBio: `Seasoned professional with over 24 years of experience in digital business and ecosystem design, he specializes in building scalable, repeatable commercial models that align partner capabilities with enterprise customer outcomes. His proven track record includes transforming founder-led and direct-sales models into scalable ecosystems, delivering 3X ARR growth and multiple successful exits across APAC, North America, and Europe.
 
 A trusted C-suite operator, he excels at opening executive doors and converting product vision into enterprise pipelines. He works extensively with ecosystem partners and systems integrators - to jointly deliver SaaS-led transformation projects, leading the product discovery process and identifying innovations that enhance competitive positioning.
