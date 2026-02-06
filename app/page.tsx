@@ -4,7 +4,7 @@ import React from "react"
 
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Menu, X, ChevronRight, Shield, Users, Mail, Phone, MapPin, ArrowRight, CheckCircle2, TrendingUp, Target, Zap, Sparkles, Linkedin } from 'lucide-react'
+import { Menu, X, ChevronRight, Shield, Users, Mail, Phone, MapPin, CheckCircle2, TrendingUp, Target, Zap, Sparkles, Linkedin } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function ZSMerchantWebsite() {
@@ -215,14 +215,17 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
               >
                 <span className="relative z-10 flex items-center">
                   Explore Our Services
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ChevronRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </button>
               <button
                 onClick={() => navigateTo('contact')}
                 className="px-8 py-4 bg-blue-100/50 backdrop-blur-sm border border-blue-300 hover:border-blue-400 hover:bg-blue-100/80 text-blue-900 rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5"
               >
-                Get In Touch
+                <span className="flex items-center">
+                  Get In Touch
+                  <ChevronRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </button>
             </div>
           </div>
@@ -816,7 +819,7 @@ Most recently he led cross-functional teams to respond to changes in global sanc
               className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors duration-300 group/link"
             >
               Visit our partner website
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover/link:translate-x-1" />
+              <ChevronRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover/link:translate-x-1" />
             </a>
           </div>
         </div>
@@ -1291,7 +1294,7 @@ function ContactPage() {
                 ) : (
                   <>
                     Send Message
-                    <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ChevronRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </>
                 )}
               </button>
