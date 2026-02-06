@@ -197,7 +197,7 @@ function HomePage({ navigateTo }: { navigateTo: (page: string) => void }) {
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-32">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-[1.1] animate-in slide-in-from-bottom-6 duration-700 delay-100">
+            <h1 className="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-tight pb-1 animate-in slide-in-from-bottom-6 duration-700 delay-100">
               Strategic Compliance & Risk Management
               <span className="block font-semibold mt-2 bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Solutions for Future-Ready Organizations
@@ -782,7 +782,7 @@ Most recently he led cross-functional teams to respond to changes in global sanc
             <div className="animate-in slide-in-from-right duration-700 delay-300">
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-                <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-12 text-white border border-slate-800">
+                <div className="relative rounded-3xl p-12 text-white border border-slate-800" style={{ backgroundColor: '#19327c' }}>
                   <h3 className="text-2xl font-semibold mb-8">Our Mission</h3>
                   <p className="text-lg font-light leading-relaxed mb-10 text-slate-300">
                     To help organisations strengthen regulatory compliance and manage risk with confidence, and achieve sustainable growth through intelligent technology, expert advisory and practical execution.
@@ -994,7 +994,7 @@ function ServicesPage() {
           {/* Service 1: AI Powered Technology */}
           <div className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
             <div className="grid lg:grid-cols-3">
-              <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+              <div className="lg:col-span-1 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: '#19327c' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
                   <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
@@ -1044,7 +1044,7 @@ function ServicesPage() {
           {/* Service 2: Advisory Services */}
           <div className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
             <div className="grid lg:grid-cols-3">
-              <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+              <div className="lg:col-span-1 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: '#19327c' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
                   <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
@@ -1081,7 +1081,7 @@ function ServicesPage() {
           {/* Service 3: Managed Services */}
           <div className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:border-primary/30 hover:-translate-y-1">
             <div className="grid lg:grid-cols-3">
-              <div className="lg:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+              <div className="lg:col-span-1 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: '#19327c' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
                   <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
@@ -1307,7 +1307,7 @@ function ContactPage() {
 
             <div className="relative group mb-8">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              <div className="relative bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-10 text-white border border-slate-800">
+              <div className="relative rounded-3xl p-10 text-white border border-slate-800" style={{ backgroundColor: '#19327c' }}>
                 <div className="space-y-6">
                   {[
                     { icon: <MapPin className="w-6 h-6" />, label: 'Address', value: '8 Alexandra View, #12-08, Singapore 158747' },
