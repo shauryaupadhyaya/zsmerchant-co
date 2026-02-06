@@ -997,11 +997,11 @@ function ServicesPage() {
               <div className="lg:col-span-1 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: '#19327c' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
+                  <div className="w-10 h-10 text-white mb-6 transition-colors duration-500">
                     {services[0].icon}
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2">{services[0].title}</h3>
-                  <p className="text-primary font-medium text-sm">{services[0].subtitle}</p>
+                  <p className="text-white/80 font-medium text-sm">{services[0].subtitle}</p>
                 </div>
               </div>
               <div className="lg:col-span-2 p-10 lg:p-12">
@@ -1047,11 +1047,11 @@ function ServicesPage() {
               <div className="lg:col-span-1 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: '#19327c' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
+                  <div className="w-10 h-10 text-white mb-6 transition-colors duration-500">
                     {services[1].icon}
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2">{services[1].title}</h3>
-                  <p className="text-primary font-medium text-sm">{services[1].subtitle}</p>
+                  <p className="text-white/80 font-medium text-sm">{services[1].subtitle}</p>
                 </div>
               </div>
               <div className="lg:col-span-2 p-10 lg:p-12">
@@ -1084,11 +1084,11 @@ function ServicesPage() {
               <div className="lg:col-span-1 p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: '#19327c' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-10 h-10 text-primary mb-6 transition-colors duration-500 group-hover:text-blue-600">
+                  <div className="w-10 h-10 text-white mb-6 transition-colors duration-500">
                     {services[2].icon}
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2">{services[2].title}</h3>
-                  <p className="text-primary font-medium text-sm">{services[2].subtitle}</p>
+                  <p className="text-white/80 font-medium text-sm">{services[2].subtitle}</p>
                 </div>
               </div>
               <div className="lg:col-span-2 p-10 lg:p-12">
@@ -1310,17 +1310,17 @@ function ContactPage() {
               <div className="relative rounded-3xl p-10 text-white border border-slate-800" style={{ backgroundColor: '#19327c' }}>
                 <div className="space-y-6">
                   {[
-                    { icon: <MapPin className="w-6 h-6" />, label: 'Address', value: '8 Alexandra View, #12-08, Singapore 158747' },
-                    { icon: <Phone className="w-6 h-6" />, label: 'Phone', value: '+65 9154 3784' },
-                    { icon: <Mail className="w-6 h-6" />, label: 'Email', value: 'contact@zsmerchant.co' }
+                    { icon: <MapPin className="w-6 h-6 text-white" />, label: 'Address', value: '8 Alexandra View, #12-08, Singapore 158747' },
+                    { icon: <Phone className="w-6 h-6 text-white" />, label: 'Phone', value: '+65 9154 3784' },
+                    { icon: <Mail className="w-6 h-6 text-white" />, label: 'Email', value: 'contact@zsmerchant.co' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start group/item">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mr-4 flex-shrink-0 transition-all duration-300 group-hover/item:bg-primary group-hover/item:text-primary-foreground group-hover/item:scale-105">
+                      <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mr-4 flex-shrink-0 transition-all duration-300 group-hover/item:bg-white/20 group-hover/item:text-white group-hover/item:scale-105">
                         {item.icon}
                       </div>
                       <div>
                         <h4 className="font-semibold mb-1">{item.label}</h4>
-                        <p className="text-slate-400 font-light">{item.value}</p>
+                        <p className="text-white/80 font-light">{item.value}</p>
                       </div>
                     </div>
                   ))}
