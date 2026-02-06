@@ -1127,7 +1127,7 @@ function CaseStudiesPage() {
       challenge: "A large US non-profit that provides grants and loans for sustainability projects worldwide required a comprehensive risk management framework enhancement.",
       solution: "Z S Merchant & Co. simplified and automated risk processes, standardised risk taxonomy, improved governance, and aligned risk management with organisational goals.",
       outcome: "Risk monitoring, reporting, and overall effectiveness were significantly improved. The organisation achieved enhanced risk visibility and strengthened stakeholder confidence.",
-      gradient: "from-blue-900 to-slate-900"
+      gradient: "from-slate-900 to-blue-900"
     },
     {
       sector: "Financial Services",
