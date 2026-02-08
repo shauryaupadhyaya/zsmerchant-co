@@ -9,9 +9,11 @@ const _inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Z S Merchant & Co. | Consulting & Advisory Excellence',
-  description: 'Expert guidance in Internal Audit, Governance, Risk, Compliance, and Technology Solutions. Singapore-based consulting firm delivering strategic solutions for future-ready organizations.',
-  generator: 'v0.app',
+  title: 'Z S Merchant & Co. | Strategic Compliance & Risk Management',
+  description: 'Singapore-based consulting firm providing AI-powered compliance and risk management solutions through expert advisory and shared services. Strategic solutions for future-ready organizations.',
+  keywords: ['compliance', 'risk management', 'internal audit', 'governance', 'consulting', 'Singapore', 'AI solutions', 'regulatory compliance'],
+  authors: [{ name: 'Z S Merchant & Co.' }],
+  
   icons: {
     icon: [
       {
@@ -22,12 +24,37 @@ export const metadata: Metadata = {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
       },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
     ],
     apple: '/apple-icon.png',
+  },
+  
+  openGraph: {
+    type: 'website',
+    locale: 'en_SG',
+    url: 'https://zsmerchant.co',
+    title: 'Z S Merchant & Co. | Strategic Compliance & Risk Management',
+    description: 'AI-powered compliance and risk management solutions through expert advisory and shared services.',
+    siteName: 'Z S Merchant & Co.',
+    images: [
+      {
+        url: '/apple-icon.png',
+        width: 180,
+        height: 180,
+        alt: 'Z S Merchant & Co.',
+      },
+    ],
+  },
+  
+  twitter: {
+    card: 'summary',
+    title: 'Z S Merchant & Co.',
+    description: 'Strategic Compliance & Risk Management Solutions',
+    images: ['/apple-icon.png'],
+  },
+  
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
