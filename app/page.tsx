@@ -1312,7 +1312,7 @@ function ContactPage() {
                   {[
                     { icon: <MapPin className="w-6 h-6 text-white" />, label: 'Address', value: '8 Alexandra View, #12-08, Singapore 158747' },
                     { icon: <Phone className="w-6 h-6 text-white" />, label: 'Phone', value: '+65 9154 3784' },
-                    { icon: <Mail className="w-6 h-6 text-white" />, label: 'Email', value: 'contact@zsmerchant.co' }
+                    { icon: <Mail className="w-6 h-6 text-white" />, label: 'Email', value: 'zarsis@zsmerchant.co' }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start group/item">
                       <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mr-4 flex-shrink-0 transition-all duration-300 group-hover/item:bg-white/20 group-hover/item:text-white group-hover/item:scale-105">
